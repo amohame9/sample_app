@@ -1,21 +1,41 @@
-<div class="center hero-unit">
-	<% provide(:title, '') %>
+<% if signed_in? %>
 
-	<h1>Welcome to the Sample App</h1>
+<div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="span8">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>  
 
-	<p> 
-		This is the home page for the 
-		<a href="http://railstutorial.org/">ruby on rails tutorial</a>
-		sample application.
-
-	</p>
-
-	<%= link_to "Sign up Now!", signup_path, class: "btn btn-large btn-primary" %>
-</div> 
-
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<% else %>
 
 
+	<div class="center hero-unit">
+		<% provide(:title, '') %>
+
+		<h1>Welcome to the Sample App</h1>
+
+		<p> 
+			This is the home page for the 
+			<a href="http://railstutorial.org/">ruby on rails tutorial</a>
+			sample application.
+
+		</p>
+
+		<%= link_to "Sign up Now!", signup_path, class: "btn btn-large btn-primary" %>
+	</div> 
+
+	<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+
+<% end %>
 
 
 
